@@ -47,8 +47,9 @@ function(cpprest_find_boost)
     cpprestsdk_find_boost_android_package(Boost ${BOOST_VERSION} EXACT REQUIRED COMPONENTS random system thread filesystem chrono atomic)
   elseif(UNIX)
     find_package(Boost REQUIRED COMPONENTS random system thread filesystem chrono atomic date_time regex)
-  else()
-    find_package(Boost REQUIRED COMPONENTS system date_time regex)
+  else() ###win32？
+  ######先屏蔽TODO 怎么也找不到
+    #find_package(Boost REQUIRED COMPONENTS system date_time regex)
   endif()
 
   add_library(cpprestsdk_boost_internal INTERFACE)

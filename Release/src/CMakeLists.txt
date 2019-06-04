@@ -65,9 +65,11 @@ elseif(CPPREST_WEBSOCKETS_IMPL STREQUAL "wspp")
     websockets/client/ws_client_impl.h
     websockets/client/ws_client_wspp.cpp
   )
-  cpprest_find_websocketpp()
-  target_link_libraries(cpprest PRIVATE cpprestsdk_websocketpp_internal)
-  cpprest_find_boost()
+  ###WIN32暂时不要webpp
+  #cpprest_find_websocketpp()
+  #target_link_libraries(cpprest PRIVATE cpprestsdk_websocketpp_internal)
+  ####TODO BOOST的三个库怎么也找不到，先屏蔽
+    #cpprest_find_boost()
   cpprest_find_openssl()
   target_link_libraries(cpprest PUBLIC cpprestsdk_boost_internal cpprestsdk_openssl_internal)
 else()
@@ -81,7 +83,8 @@ if(CPPREST_EXCLUDE_COMPRESSION)
   endif()
   target_compile_definitions(cpprest PRIVATE -DCPPREST_EXCLUDE_COMPRESSION=1)
 else()
-  cpprest_find_zlib()
+######ZLIB 怎么也找到不到 TODO ,先屏蔽
+ # cpprest_find_zlib()
   target_link_libraries(cpprest PRIVATE cpprestsdk_zlib_internal)
   if(CPPREST_EXCLUDE_BROTLI)
     target_compile_definitions(cpprest PRIVATE -DCPPREST_EXCLUDE_BROTLI=1)

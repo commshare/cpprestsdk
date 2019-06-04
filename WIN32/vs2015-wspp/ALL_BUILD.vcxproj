@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E6C3FF0A-B39E-3D38-A718-D638CC0CAEEE}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\netttttt\http\zhangbincpprestsdk\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule E:/netttttt/http/zhangbincpprestsdk/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SE:/netttttt/http/zhangbincpprestsdk -BE:/netttttt/http/zhangbincpprestsdk/WIN32 --check-stamp-file E:/netttttt/http/zhangbincpprestsdk/WIN32/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:/netttttt/http/zhangbincpprestsdk/CMakeLists.txt;D:\Program Files\CMake\share\cmake-3.14\Modules\CMakeGenericSystem.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CMakeInitializeConfigs.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CMakeSystemSpecificInformation.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CMakeSystemSpecificInitialize.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\Platform\Windows.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\Platform\WindowsPaths.cmake;E:\netttttt\http\zhangbincpprestsdk\CMakeLists.txt;E:\netttttt\http\zhangbincpprestsdk\WIN32\CMakeFiles\3.14.0\CMakeSystem.cmake;E:\netttttt\http\zhangbincpprestsdk\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\netttttt\http\zhangbincpprestsdk\WIN32\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule E:/netttttt/http/zhangbincpprestsdk/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SE:/netttttt/http/zhangbincpprestsdk -BE:/netttttt/http/zhangbincpprestsdk/WIN32 --check-stamp-file E:/netttttt/http/zhangbincpprestsdk/WIN32/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:/netttttt/http/zhangbincpprestsdk/CMakeLists.txt;D:\Program Files\CMake\share\cmake-3.14\Modules\CMakeGenericSystem.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CMakeInitializeConfigs.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CMakeSystemSpecificInformation.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CMakeSystemSpecificInitialize.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\Platform\Windows.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\Platform\WindowsPaths.cmake;E:\netttttt\http\zhangbincpprestsdk\CMakeLists.txt;E:\netttttt\http\zhangbincpprestsdk\WIN32\CMakeFiles\3.14.0\CMakeSystem.cmake;E:\netttttt\http\zhangbincpprestsdk\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\netttttt\http\zhangbincpprestsdk\WIN32\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule E:/netttttt/http/zhangbincpprestsdk/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SE:/netttttt/http/zhangbincpprestsdk -BE:/netttttt/http/zhangbincpprestsdk/WIN32 --check-stamp-file E:/netttttt/http/zhangbincpprestsdk/WIN32/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:/netttttt/http/zhangbincpprestsdk/CMakeLists.txt;D:\Program Files\CMake\share\cmake-3.14\Modules\CMakeGenericSystem.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CMakeInitializeConfigs.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CMakeSystemSpecificInformation.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CMakeSystemSpecificInitialize.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\Platform\Windows.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\Platform\WindowsPaths.cmake;E:\netttttt\http\zhangbincpprestsdk\CMakeLists.txt;E:\netttttt\http\zhangbincpprestsdk\WIN32\CMakeFiles\3.14.0\CMakeSystem.cmake;E:\netttttt\http\zhangbincpprestsdk\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\netttttt\http\zhangbincpprestsdk\WIN32\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule E:/netttttt/http/zhangbincpprestsdk/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SE:/netttttt/http/zhangbincpprestsdk -BE:/netttttt/http/zhangbincpprestsdk/WIN32 --check-stamp-file E:/netttttt/http/zhangbincpprestsdk/WIN32/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:/netttttt/http/zhangbincpprestsdk/CMakeLists.txt;D:\Program Files\CMake\share\cmake-3.14\Modules\CMakeGenericSystem.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CMakeInitializeConfigs.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CMakeSystemSpecificInformation.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CMakeSystemSpecificInitialize.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\Platform\Windows.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\Platform\WindowsPaths.cmake;E:\netttttt\http\zhangbincpprestsdk\CMakeLists.txt;E:\netttttt\http\zhangbincpprestsdk\WIN32\CMakeFiles\3.14.0\CMakeSystem.cmake;E:\netttttt\http\zhangbincpprestsdk\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\netttttt\http\zhangbincpprestsdk\WIN32\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="E:\netttttt\http\zhangbincpprestsdk\WIN32\ZERO_CHECK.vcxproj">
+      <Project>{A176657F-0AA3-398F-8CF1-46712FD79F2B}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\netttttt\http\zhangbincpprestsdk\WIN32\Release\samples\BingRequest\BingRequest.vcxproj">
+      <Project>{DFC1F0B0-A588-3F9B-9CAD-11938C1F32AC}</Project>
+      <Name>BingRequest</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\netttttt\http\zhangbincpprestsdk\WIN32\Release\samples\SearchFile\SearchFile.vcxproj">
+      <Project>{FB3CB569-9342-31EE-A902-DEEA05F1B7D5}</Project>
+      <Name>SearchFile</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\netttttt\http\zhangbincpprestsdk\WIN32\Release\samples\BlackJack\BlackJack_Client\blackjackclient.vcxproj">
+      <Project>{71D26AC8-A3F9-325F-A3B8-3AF09DCFE994}</Project>
+      <Name>blackjackclient</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\netttttt\http\zhangbincpprestsdk\WIN32\Release\samples\BlackJack\BlackJack_Server\blackjackserver.vcxproj">
+      <Project>{E5C90FD6-9338-3971-BDBE-8C0DD7E28A01}</Project>
+      <Name>blackjackserver</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\netttttt\http\zhangbincpprestsdk\WIN32\Release\tests\common\utilities\common_utilities.vcxproj">
+      <Project>{2956FD8C-FBAD-3A7D-A1AA-EA1C660A129A}</Project>
+      <Name>common_utilities</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\netttttt\http\zhangbincpprestsdk\WIN32\Release\src\cpprest.vcxproj">
+      <Project>{E2EDCFD5-C98B-3EFE-9EDF-9B69F8F1379A}</Project>
+      <Name>cpprest</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\netttttt\http\zhangbincpprestsdk\WIN32\Release\tests\functional\http\client\httpclient_test.vcxproj">
+      <Project>{42513BC6-0B70-3C14-B3C5-4BC7E1BC0650}</Project>
+      <Name>httpclient_test</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\netttttt\http\zhangbincpprestsdk\WIN32\Release\tests\functional\http\listener\httplistener_test.vcxproj">
+      <Project>{4362448C-BE8F-36A3-9B0E-50611BD41CF1}</Project>
+      <Name>httplistener_test</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\netttttt\http\zhangbincpprestsdk\WIN32\Release\tests\functional\http\utilities\httptest_utilities.vcxproj">
+      <Project>{5E524D44-C5BF-336D-B812-E13DBC6B94B6}</Project>
+      <Name>httptest_utilities</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\netttttt\http\zhangbincpprestsdk\WIN32\Release\tests\functional\json\json_test.vcxproj">
+      <Project>{1C9DD759-1582-3F76-91A7-E2E93ED3EDA7}</Project>
+      <Name>json_test</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\netttttt\http\zhangbincpprestsdk\WIN32\Release\samples\Oauth1Client\oauth1client.vcxproj">
+      <Project>{F998D6CB-C9D6-3B52-85BF-503E8965DD7E}</Project>
+      <Name>oauth1client</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\netttttt\http\zhangbincpprestsdk\WIN32\Release\samples\Oauth2Client\oauth2client.vcxproj">
+      <Project>{922B451B-BAFA-3F9B-803B-54138CE39381}</Project>
+      <Name>oauth2client</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\netttttt\http\zhangbincpprestsdk\WIN32\Release\tests\functional\pplx\pplx_test\pplx_test.vcxproj">
+      <Project>{D6297D20-59AF-3E27-83CC-DE1EA62B27CE}</Project>
+      <Name>pplx_test</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\netttttt\http\zhangbincpprestsdk\WIN32\Release\tests\functional\streams\streams_test.vcxproj">
+      <Project>{04AA7FE2-B767-3EE0-9607-97CE5A999562}</Project>
+      <Name>streams_test</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\netttttt\http\zhangbincpprestsdk\WIN32\Release\tests\common\TestRunner\test_runner.vcxproj">
+      <Project>{8EF7FEFB-B31C-3709-B1A3-1FCAB22D3D51}</Project>
+      <Name>test_runner</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\netttttt\http\zhangbincpprestsdk\WIN32\Release\tests\common\UnitTestpp\unittestpp.vcxproj">
+      <Project>{6BE9891D-D655-30ED-9EB9-B9BA3C219DDF}</Project>
+      <Name>unittestpp</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\netttttt\http\zhangbincpprestsdk\WIN32\Release\tests\functional\uri\uri_test.vcxproj">
+      <Project>{25A5C8EB-A739-30EA-AE01-4DDC56266398}</Project>
+      <Name>uri_test</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\netttttt\http\zhangbincpprestsdk\WIN32\Release\tests\functional\utils\utils_test.vcxproj">
+      <Project>{7BFCA077-2FEF-34D5-8A79-1F8F4D3022E4}</Project>
+      <Name>utils_test</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
