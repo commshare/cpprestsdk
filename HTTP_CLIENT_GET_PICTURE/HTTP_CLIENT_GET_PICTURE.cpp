@@ -64,16 +64,19 @@ bool get_result(const std::string& url, std::string& picture)
 {
     try
     {
+	    //创建客户端
         web::http::client::http_client client(web::uri(utility::conversions::to_string_t(url)));
+		//获取get的应答
         web::http::http_response response = client.request(web::http::methods::GET).get();
-
+		//读取应答
         concurrency::streams::stringstreambuf buffer;
         response.body().read_to_end(buffer).get();
+		//基于内存的流buffer，不可用于生产者和消费者
         picture = buffer.collection();
     }
     catch (std::exception& e)
     {
-        std::cout << "Exception: " << e.what() << std::endl;
+        std::cout <<__FUNCTION__<< url<<" Exception: " << e.what() << std::endl;
         return false;
     }
 
@@ -107,10 +110,12 @@ int main()
 {
     // [1] 请求每一页，将子页面的url保存在sub_url_vec里面
     std::vector<std::string> sub_url_vec;
+	//类似  url: http://www.51ztzj.com/desk/54887.htm
     std::string pattern = "/desk/[0-9]+.htm";
     for (int i = 1; i <= 32; ++i)
     {
         // 创意主题
+	     //类似  url: url: http://www.51ztzj.com/dbizhi/category_27_1.htm#content_anchor
         std::string url = "http://www.51ztzj.com/dbizhi/category_27_" + std::to_string(i) + ".htm#content_anchor";
         std::cout << "Start get " << i << " page, url: " << url << std::endl;
         // 请求并解析url
