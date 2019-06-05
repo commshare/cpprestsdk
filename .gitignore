@@ -5,7 +5,8 @@ WIN32/Release/
 WIN32/.vs/
 .vscode/
 HTTP_CLIENT_GET_PICTURE/Release/
-
+HTTP_SIMPLE_CLIENT/Release/
+HTTP_SIMPLE_SERVER/Release/
 # Visual Studio files
 *.o
 *.d
