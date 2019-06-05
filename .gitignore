@@ -4,7 +4,7 @@ WIN32/Debug/
 WIN32/Release/
 WIN32/.vs/
 .vscode/
-
+HTTP_CLIENT_GET_PICTURE/Release/
 
 # Visual Studio files
 *.o
