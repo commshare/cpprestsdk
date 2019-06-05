@@ -18,5 +18,16 @@
     <ClCompile Include="HTTP_SIMPLE_CLIENT.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="full_httpclient.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="def.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

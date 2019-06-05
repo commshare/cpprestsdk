@@ -1,6 +1,6 @@
 ﻿// HTTP_SIMPLE_CLIENT.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
-
+#include "def.h"
 //#include <iostream>
 //
 //int main()
@@ -19,16 +19,13 @@
 //   5. 转到“项目”>“添加新项”以创建新的代码文件，或转到“项目”>“添加现有项”以将现有代码文件添加到项目
 //   6. 将来，若要再次打开此项目，请转到“文件”>“打开”>“项目”并选择 .sln 文件
 //https://segmentfault.com/q/1010000002869889
-#include "cpprest/filestream.h"
-#include "cpprest/http_client.h"
 
-using namespace utility;              // Common utilities like string conversions
-using namespace web;                  // Common features like URIs.
-using namespace web::http;            // Common HTTP functionality
-using namespace web::http::client;    // HTTP client features
-using namespace concurrency::streams; // Asynchronous streams
 
-int main(int argc, char* argv[])
+//#if USE_SIMPLE_CLIENT
+//int main(int argc, char* argv[])
+//#else
+int main_simple(int argc, char* argv[])
+//#endif
 {
     auto fileStream = std::make_shared<ostream>();
     // Open stream to output file.
