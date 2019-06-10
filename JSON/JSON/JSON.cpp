@@ -141,7 +141,7 @@ j5{
     "content":[{
         "key1" :   "%E5%86%85%E5%AE%B91",
       "key2" :   "%E5%86%AE%B91",
-     
+     
         "key3" : "内容3"
     },{
         "key1" : "内容1",
@@ -207,20 +207,21 @@ j["object"] = {{"currency", "USD"}, {"value", 42.99}};
     j["module"] = "china";
     std::cout << std::setw(4) << j << std::endl;
 
-	  std::cout << "=============================" << std::endl;
-	  //怎么变为了这个样子：   "1content": " [ \"one\", \"two\", \"three\" ]", ？？？？？？TODO 
+    std::cout << "=============================" << std::endl;
+    //怎么变为了这个样子：   "1content": " [ \"one\", \"two\", \"three\" ]", ？？？？？？TODO
     j["1_content"] = R"( [ "one", "two", "three" ])";
-	/*
-	    "2_content": "[\n  { \"op\": \"replace\", \"path\": \"/baz\", \"value\": \"boo\" },\n  { \"op\": \"add\", \"path\": \"/hello\", \"value\": [\"world\"] },\n  { \"op\": \"remove\", \"path\": \"/foo\"} \n]",
-	*/
-          j["2_content"] = R"([
+    /*
+        "2_content": "[\n  { \"op\": \"replace\", \"path\": \"/baz\", \"value\": \"boo\" },\n  { \"op\": \"add\",
+       \"path\": \"/hello\", \"value\": [\"world\"] },\n  { \"op\": \"remove\", \"path\": \"/foo\"} \n]",
+    */
+    j["2_content"] = R"([
   { "op": "replace", "path": "/baz", "value": "boo" },
   { "op": "add", "path": "/hello", "value": ["world"] },
   { "op": "remove", "path": "/foo"} 
 ])";
-		  /*
-		  3 是这样的，看起来这个就符合要求
-  "3_content": [
+    /*
+    3 是这样的，看起来这个就符合要求
+"3_content": [
 {
 "op": "replace",
 "path": "/baz",
@@ -238,47 +239,48 @@ j["object"] = {{"currency", "USD"}, {"value", 42.99}};
 "path": "/foo"
 }
 ],
-		  */
-		  //这个也符号要求，j["2_content"] 的方法可以直接转为json的字符串
-    j["3_content"] =
-        json::parse("[ { \"op\": \"replace\", \"path\": \"/baz\", \"value\": \"boo\" },\n  { \"op\": \"add\", \"path\": "
-                   "\"/hello\", \"value\": [\"world\"] },\n  { \"op\": \"remove\", \"path\": \"/foo\"} ]");
-	/*
-	GOOD!
-	厉害了，这个符合要求
- "4_content": [
+    */
+    //这个也符号要求，j["2_content"] 的方法可以直接转为json的字符串
+    j["3_content"] = json::parse(
+        "[ { \"op\": \"replace\", \"path\": \"/baz\", \"value\": \"boo\" },\n  { \"op\": \"add\", \"path\": "
+        "\"/hello\", \"value\": [\"world\"] },\n  { \"op\": \"remove\", \"path\": \"/foo\"} ]");
+    /*
+    GOOD!
+    厉害了，这个符合要求
+"4_content": [
 {
-    "currency": "USD",
-    "nihao": "home",
-    "value": 42.99
+"currency": "USD",
+"nihao": "home",
+"value": 42.99
 },
 {
-    "5": "5",
-    "6": 42.99,
-    "7": "8"
+"5": "5",
+"6": 42.99,
+"7": "8"
 },
 {
-    "5": "5",
-    "6": 42.99,
-    "7": "8"
+"5": "5",
+"6": 42.99,
+"7": "8"
 }
 ],
-	*/
-	json m1= {{"currency", "USD"}, {"value", 42.99}, {"nihao", "home"}};
+    */
+    json m1 = {{"currency", "USD"}, {"value", 42.99}, {"nihao", "home"}};
     json m2 = {{"1", "2"}, {"3", 42.99}, {"4", "5"}};
     json m3 = {{"5", "5"}, {"6", 42.99}, {"7", "8"}};
-	//这样符合要求
+    //这样符合要求
     j["4_content"] = {m1, m3, m3};
     std::cout << std::setw(4) << j << std::endl;
 }
-void creatPatch() {
+void creatPatch()
+{
     // a JSON value
     json j_original = R"({
   "baz": ["one", "two", "three"],
   "foo": "bar"
 })"_json;
 
-  //https://www.jianshu.com/p/69e57f2af904
+    // https://www.jianshu.com/p/69e57f2af904
     // a JSON patch (RFC 6902)
     json j_patch = R"([
   { "op": "replace", "path": "/baz", "value": "boo" },
@@ -286,12 +288,182 @@ void creatPatch() {
   { "op": "remove", "path": "/foo"}
 ])"_json;
 }
+class Component
+{
+public:
+    Component(std::string type) { name = type;
+	}
+	/*
+     {
+        "TIME": "china_2",
+        "Type": "1_china"
+    },
+	*/
+    void Serialize(json& outJson) { outJson["Type"] = std::to_string(++id) + "_"+name; 
+	outJson["TIME"] = name + "_" + std::to_string(++id);
+	}
+
+private:
+    static int id;
+    std::string name;
+};
+int Component::id = 0;
+    /*
+d
+
+[
+    {
+        "Components": [
+            {
+                "Type": "1_china"
+            },
+            {
+                "Type": "1_usa"
+            },
+            {
+                "Type": "1_english"
+            }
+        ],
+        "Name": "zhangbin"
+    }
+]
+
+*/
+void createVecor(json& d)
+{
+    json thing;
+    thing["Name"] = "zhangbin";
+    json& componentsJson = thing["Components"];
+
+    std::vector<Component> sss;
+    sss.push_back(Component("china"));
+    sss.push_back(Component ("usa"));
+    sss.push_back(Component ("english"));
+    auto comps = sss;
+    for (auto comp : comps)
+    {
+        json compJson;
+        comp.Serialize(compJson);
+		/*
+		从vector来自动变为数组
+[
+{
+"TIME": "china_2",
+"Type": "1_china"
+},
+{
+"TIME": "usa_4",
+"Type": "3_usa"
+},
+{
+"TIME": "english_6",
+"Type": "5_english"
+}
+],
+		*/
+        componentsJson.push_back(compJson);
+    }
+    std::cout << "===========thing==================" << std::endl;
+	/*
+    {
+"Components": [
+    {
+        "Type": "1_china"
+    },
+    {
+        "Type": "2_usa"
+    },
+    {
+        "Type": "3_english"
+    }
+],
+"Name": "zhangbin"
+}
+	*/
+    std::cout << std::setw(4) << thing << std::endl;
+    d.push_back(thing);
+    d.push_back(thing);
+}
 int main()
 {
     std::cout << "Hello World!\n";
     createJson();
     create100();
     createarray();
+    std::cout << "=============================" << std::endl;
+	/*
+    [
+{
+    "Components": [
+        {
+            "Type": "1_china"
+        },
+        {
+            "Type": "1_usa"
+        },
+        {
+            "Type": "1_english"
+        }
+    ],
+    "Name": "zhangbin"
+},
+{
+    "Components": [
+        {
+            "Type": "1_china"
+        },
+        {
+            "Type": "1_usa"
+        },
+        {
+            "Type": "1_english"
+        }
+    ],
+    "Name": "zhangbin"
+}
+]
+	*/
+    json ddd;
+    createVecor(ddd);
+    std::cout << std::setw(4) << ddd << std::endl;
+    json d;
+    d["content"] = ddd;
+    std::cout << "=============================" << std::endl;
+	/*
+    {
+"content": [
+    {
+        "Components": [
+            {
+                "Type": "1_china"
+            },
+            {
+                "Type": "1_usa"
+            },
+            {
+                "Type": "1_english"
+            }
+        ],
+        "Name": "zhangbin"
+    },
+    {
+        "Components": [
+            {
+                "Type": "1_china"
+            },
+            {
+                "Type": "1_usa"
+            },
+            {
+                "Type": "1_english"
+            }
+        ],
+        "Name": "zhangbin"
+    }
+]
+}
+	*/
+    std::cout << std::setw(4) << d << std::endl;
     system("pause");
     return 0;
 }
