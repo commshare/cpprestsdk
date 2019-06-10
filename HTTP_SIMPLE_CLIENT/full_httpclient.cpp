@@ -43,6 +43,7 @@ void make_request(http_client& client, method mtd, json::value const& jvalue)
         .wait();
 }
 
+
 int full_client_main()
 {
     http_client client(U("http://localhost:8888"));
@@ -55,6 +56,7 @@ int full_client_main()
     display_json(putvalue, L"S: ");
     make_request(client, methods::PUT, putvalue);
 
+	//สýื้
     auto getvalue = json::value::array();
     getvalue[0] = json::value::string(L"one");
     getvalue[1] = json::value::string(L"two");

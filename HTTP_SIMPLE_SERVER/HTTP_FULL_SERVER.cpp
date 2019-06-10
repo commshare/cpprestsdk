@@ -326,6 +326,34 @@ void handle_del(http_request request)
     });
 }
 }
+
+/*
+starting to listen
+
+handle PUT
+R: {"one":"100","two":"200"}
+added (one, 100)
+added (two, 200)
+S: {"one":"<put>","two":"<put>"}
+
+handle POST
+R: ["one","two","three"]
+S: {"one":"100","three":"<nil>","two":"200"}
+
+handle DEL
+R: ["one"]
+deleted (one, 100)
+S: {"one":"<deleted>"}
+
+handle POST
+R: ["one","two","three"]
+S: {"one":"<nil>","three":"<nil>","two":"200"}
+
+handle GET
+R: null
+S: {"two":"200"}
+
+*/
 int full_svr_main(int argc, char** argv)
 {
     http_listener listener(L"http://localhost:8888/restdemo");

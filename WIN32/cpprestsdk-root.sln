@@ -182,6 +182,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HTTP_SIMPLE_SERVER", "..\HT
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HTTP_SIMPLE_CLIENT", "..\HTTP_SIMPLE_CLIENT\HTTP_SIMPLE_CLIENT.vcxproj", "{05071389-F9F3-4C44-B155-A15E43CA3FFD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "simple_web", "..\simple_web\simple_web.vcxproj", "{363DCB11-CFEF-4E12-BE70-CE3C2D695ECA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -506,6 +508,22 @@ Global
 		{05071389-F9F3-4C44-B155-A15E43CA3FFD}.RelWithDebInfo|Win32.Build.0 = Release|Win32
 		{05071389-F9F3-4C44-B155-A15E43CA3FFD}.RelWithDebInfo|x64.ActiveCfg = Release|x64
 		{05071389-F9F3-4C44-B155-A15E43CA3FFD}.RelWithDebInfo|x64.Build.0 = Release|x64
+		{363DCB11-CFEF-4E12-BE70-CE3C2D695ECA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{363DCB11-CFEF-4E12-BE70-CE3C2D695ECA}.Debug|Win32.Build.0 = Debug|Win32
+		{363DCB11-CFEF-4E12-BE70-CE3C2D695ECA}.Debug|x64.ActiveCfg = Debug|x64
+		{363DCB11-CFEF-4E12-BE70-CE3C2D695ECA}.Debug|x64.Build.0 = Debug|x64
+		{363DCB11-CFEF-4E12-BE70-CE3C2D695ECA}.MinSizeRel|Win32.ActiveCfg = Release|Win32
+		{363DCB11-CFEF-4E12-BE70-CE3C2D695ECA}.MinSizeRel|Win32.Build.0 = Release|Win32
+		{363DCB11-CFEF-4E12-BE70-CE3C2D695ECA}.MinSizeRel|x64.ActiveCfg = Release|x64
+		{363DCB11-CFEF-4E12-BE70-CE3C2D695ECA}.MinSizeRel|x64.Build.0 = Release|x64
+		{363DCB11-CFEF-4E12-BE70-CE3C2D695ECA}.Release|Win32.ActiveCfg = Release|Win32
+		{363DCB11-CFEF-4E12-BE70-CE3C2D695ECA}.Release|Win32.Build.0 = Release|Win32
+		{363DCB11-CFEF-4E12-BE70-CE3C2D695ECA}.Release|x64.ActiveCfg = Release|x64
+		{363DCB11-CFEF-4E12-BE70-CE3C2D695ECA}.Release|x64.Build.0 = Release|x64
+		{363DCB11-CFEF-4E12-BE70-CE3C2D695ECA}.RelWithDebInfo|Win32.ActiveCfg = Release|Win32
+		{363DCB11-CFEF-4E12-BE70-CE3C2D695ECA}.RelWithDebInfo|Win32.Build.0 = Release|Win32
+		{363DCB11-CFEF-4E12-BE70-CE3C2D695ECA}.RelWithDebInfo|x64.ActiveCfg = Release|x64
+		{363DCB11-CFEF-4E12-BE70-CE3C2D695ECA}.RelWithDebInfo|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
