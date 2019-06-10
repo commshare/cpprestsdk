@@ -18,37 +18,34 @@
     <ClCompile Include="simple_web.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Simple-Web-Server\http_examples.cpp">
+    <ClCompile Include="http_examples.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Simple-Web-Server\https_examples.cpp">
+    <ClCompile Include="https_examples.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Simple-Web-Server\client_http.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Simple-Web-Server\client_https.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Simple-Web-Server\crypto.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Simple-Web-Server\server_http.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Simple-Web-Server\server_https.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Simple-Web-Server\status_code.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Simple-Web-Server\utility.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="simple.h">
       <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="client_http.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="client_https.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="server_http.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="server_https.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="status_code.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utility.hpp">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

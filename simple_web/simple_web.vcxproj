@@ -154,19 +154,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Simple-Web-Server\https_examples.cpp" />
-    <ClCompile Include="..\..\Simple-Web-Server\http_examples.cpp" />
+    <ClCompile Include="https_examples.cpp" />
+    <ClCompile Include="http_examples.cpp" />
     <ClCompile Include="simple_web.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Simple-Web-Server\client_http.hpp" />
-    <ClInclude Include="..\..\Simple-Web-Server\client_https.hpp" />
-    <ClInclude Include="..\..\Simple-Web-Server\crypto.hpp" />
-    <ClInclude Include="..\..\Simple-Web-Server\server_http.hpp" />
-    <ClInclude Include="..\..\Simple-Web-Server\server_https.hpp" />
-    <ClInclude Include="..\..\Simple-Web-Server\status_code.hpp" />
-    <ClInclude Include="..\..\Simple-Web-Server\utility.hpp" />
+    <ClInclude Include="client_http.hpp" />
+    <ClInclude Include="client_https.hpp" />
+    <ClInclude Include="server_http.hpp" />
+    <ClInclude Include="server_https.hpp" />
     <ClInclude Include="simple.h" />
+    <ClInclude Include="status_code.hpp" />
+    <ClInclude Include="utility.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
