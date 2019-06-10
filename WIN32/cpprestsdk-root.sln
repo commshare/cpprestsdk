@@ -184,6 +184,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HTTP_SIMPLE_CLIENT", "..\HT
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "simple_web", "..\simple_web\simple_web.vcxproj", "{363DCB11-CFEF-4E12-BE70-CE3C2D695ECA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JSON", "..\JSON\JSON\JSON.vcxproj", "{BE66C1CF-258B-4BD1-9ED5-7BD4235342D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -524,6 +526,22 @@ Global
 		{363DCB11-CFEF-4E12-BE70-CE3C2D695ECA}.RelWithDebInfo|Win32.Build.0 = Release|Win32
 		{363DCB11-CFEF-4E12-BE70-CE3C2D695ECA}.RelWithDebInfo|x64.ActiveCfg = Release|x64
 		{363DCB11-CFEF-4E12-BE70-CE3C2D695ECA}.RelWithDebInfo|x64.Build.0 = Release|x64
+		{BE66C1CF-258B-4BD1-9ED5-7BD4235342D1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BE66C1CF-258B-4BD1-9ED5-7BD4235342D1}.Debug|Win32.Build.0 = Debug|Win32
+		{BE66C1CF-258B-4BD1-9ED5-7BD4235342D1}.Debug|x64.ActiveCfg = Debug|x64
+		{BE66C1CF-258B-4BD1-9ED5-7BD4235342D1}.Debug|x64.Build.0 = Debug|x64
+		{BE66C1CF-258B-4BD1-9ED5-7BD4235342D1}.MinSizeRel|Win32.ActiveCfg = Release|Win32
+		{BE66C1CF-258B-4BD1-9ED5-7BD4235342D1}.MinSizeRel|Win32.Build.0 = Release|Win32
+		{BE66C1CF-258B-4BD1-9ED5-7BD4235342D1}.MinSizeRel|x64.ActiveCfg = Release|x64
+		{BE66C1CF-258B-4BD1-9ED5-7BD4235342D1}.MinSizeRel|x64.Build.0 = Release|x64
+		{BE66C1CF-258B-4BD1-9ED5-7BD4235342D1}.Release|Win32.ActiveCfg = Release|Win32
+		{BE66C1CF-258B-4BD1-9ED5-7BD4235342D1}.Release|Win32.Build.0 = Release|Win32
+		{BE66C1CF-258B-4BD1-9ED5-7BD4235342D1}.Release|x64.ActiveCfg = Release|x64
+		{BE66C1CF-258B-4BD1-9ED5-7BD4235342D1}.Release|x64.Build.0 = Release|x64
+		{BE66C1CF-258B-4BD1-9ED5-7BD4235342D1}.RelWithDebInfo|Win32.ActiveCfg = Release|Win32
+		{BE66C1CF-258B-4BD1-9ED5-7BD4235342D1}.RelWithDebInfo|Win32.Build.0 = Release|Win32
+		{BE66C1CF-258B-4BD1-9ED5-7BD4235342D1}.RelWithDebInfo|x64.ActiveCfg = Release|x64
+		{BE66C1CF-258B-4BD1-9ED5-7BD4235342D1}.RelWithDebInfo|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

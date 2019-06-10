@@ -2,7 +2,10 @@
 //
 #include <iomanip>
 #include <iostream>
+#include <filesystem>
 #include <nlohmann/json.hpp>
+
+#include "File.h"
 
 // for convenience
 using json = nlohmann::json;
@@ -141,7 +144,7 @@ j5{
     "content":[{
         "key1" :   "%E5%86%85%E5%AE%B91",
       "key2" :   "%E5%86%AE%B91",
-     
+     
         "key3" : "内容3"
     },{
         "key1" : "内容1",
@@ -291,41 +294,43 @@ void creatPatch()
 class Component
 {
 public:
-    Component(std::string type) { name = type;
-	}
-	/*
-     {
-        "TIME": "china_2",
-        "Type": "1_china"
-    },
-	*/
-    void Serialize(json& outJson) { outJson["Type"] = std::to_string(++id) + "_"+name; 
-	outJson["TIME"] = name + "_" + std::to_string(++id);
-	}
+    Component(std::string type) { name = type; }
+    /*
+ {
+    "TIME": "china_2",
+    "Type": "1_china"
+},
+    */
+    void Serialize(json& outJson)
+    {
+        outJson["Type"] = std::to_string(++id) + "_" + name;
+        outJson["TIME"] = name + "_" + std::to_string(++id);
+    }
+    static int id;
 
 private:
-    static int id;
+  
     std::string name;
 };
 int Component::id = 0;
-    /*
+/*
 d
 
 [
-    {
-        "Components": [
-            {
-                "Type": "1_china"
-            },
-            {
-                "Type": "1_usa"
-            },
-            {
-                "Type": "1_english"
-            }
-        ],
-        "Name": "zhangbin"
-    }
+{
+    "Components": [
+        {
+            "Type": "1_china"
+        },
+        {
+            "Type": "1_usa"
+        },
+        {
+            "Type": "1_english"
+        }
+    ],
+    "Name": "zhangbin"
+}
 ]
 
 */
@@ -337,15 +342,15 @@ void createVecor(json& d)
 
     std::vector<Component> sss;
     sss.push_back(Component("china"));
-    sss.push_back(Component ("usa"));
-    sss.push_back(Component ("english"));
+    sss.push_back(Component("usa"));
+    sss.push_back(Component("english"));
     auto comps = sss;
     for (auto comp : comps)
     {
         json compJson;
         comp.Serialize(compJson);
-		/*
-		从vector来自动变为数组
+        /*
+        从vector来自动变为数组
 [
 {
 "TIME": "china_2",
@@ -360,29 +365,45 @@ void createVecor(json& d)
 "Type": "5_english"
 }
 ],
-		*/
+        */
         componentsJson.push_back(compJson);
     }
     std::cout << "===========thing==================" << std::endl;
-	/*
-    {
-"Components": [
-    {
-        "Type": "1_china"
-    },
-    {
-        "Type": "2_usa"
-    },
-    {
-        "Type": "3_english"
-    }
-],
-"Name": "zhangbin"
-}
-	*/
+    /*
+//{
+//"Components": [
+//{
+//    "Type": "1_china"
+//},
+//{
+//    "Type": "2_usa"
+//},
+//{
+//    "Type": "3_english"
+//}
+//],
+//"Name": "zhangbin"
+//}
+    */
     std::cout << std::setw(4) << thing << std::endl;
     d.push_back(thing);
     d.push_back(thing);
+}
+Path FilePath;
+void save(std::string fileName, json &world)
+{
+  
+    //void Scene::Save(std::string fileName, Transform * root)
+    {
+        FilePath = Path(fileName);
+
+        File worldFile(FilePath);
+       
+		
+
+        worldFile.Write(world.dump(4));
+        std::cout << world.dump(4) << std::endl;
+    }
 }
 int main()
 {
@@ -391,8 +412,47 @@ int main()
     create100();
     createarray();
     std::cout << "=============================" << std::endl;
-	/*
-    [
+    /*
+[
+{
+"Components": [
+    {
+        "Type": "1_china"
+    },
+    {
+        "Type": "1_usa"
+    },
+    {
+        "Type": "1_english"
+    }
+],
+"Name": "zhangbin"
+},
+{
+"Components": [
+    {
+        "Type": "1_china"
+    },
+    {
+        "Type": "1_usa"
+    },
+    {
+        "Type": "1_english"
+    }
+],
+"Name": "zhangbin"
+}
+]
+    */
+    json ddd;
+    createVecor(ddd);
+    std::cout << std::setw(4) << ddd << std::endl;
+    json d;
+    d["content"] = ddd;
+    std::cout << "=============================" << std::endl;
+    /*
+{
+"content": [
 {
     "Components": [
         {
@@ -422,48 +482,11 @@ int main()
     "Name": "zhangbin"
 }
 ]
-	*/
-    json ddd;
-    createVecor(ddd);
-    std::cout << std::setw(4) << ddd << std::endl;
-    json d;
-    d["content"] = ddd;
-    std::cout << "=============================" << std::endl;
-	/*
-    {
-"content": [
-    {
-        "Components": [
-            {
-                "Type": "1_china"
-            },
-            {
-                "Type": "1_usa"
-            },
-            {
-                "Type": "1_english"
-            }
-        ],
-        "Name": "zhangbin"
-    },
-    {
-        "Components": [
-            {
-                "Type": "1_china"
-            },
-            {
-                "Type": "1_usa"
-            },
-            {
-                "Type": "1_english"
-            }
-        ],
-        "Name": "zhangbin"
-    }
-]
 }
-	*/
+    */
     std::cout << std::setw(4) << d << std::endl;
+	//E:\netttttt\http\zhangbincpprestsdk\WIN32\Release下面，跟exe同目录
+    save("ssave.txt",d);
     system("pause");
     return 0;
 }

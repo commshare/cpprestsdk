@@ -32,5 +32,11 @@
     <ClInclude Include="..\..\nlohmann\json_fwd.hpp">
       <Filter>nlohmann</Filter>
     </ClInclude>
+    <ClInclude Include="path.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="File.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
