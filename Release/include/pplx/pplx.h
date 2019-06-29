@@ -49,7 +49,7 @@
 #include "pplx/pplxlinux.h"
 #endif // _WIN32
 
-// Common implementation across all the non-concrt versions
+// Common implementation across all the non-concrt versions 所有非concrt版本的通用实现
 #include "pplx/pplxcancellation_token.h"
 #include <functional>
 

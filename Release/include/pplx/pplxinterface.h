@@ -90,7 +90,7 @@ struct scheduler_ptr
 
 private:
     std::shared_ptr<scheduler_interface> m_sharedScheduler;
-    scheduler_interface* m_scheduler;
+    scheduler_interface* m_scheduler; //raw pointer
 };
 
 /// <summary>

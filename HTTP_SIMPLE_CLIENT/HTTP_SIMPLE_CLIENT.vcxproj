@@ -155,7 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="full_httpclient.cpp" />
+    <ClCompile Include="HTTP_FULL_CLIENT.cpp" />
     <ClCompile Include="HTTP_SIMPLE_CLIENT.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>

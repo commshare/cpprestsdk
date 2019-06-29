@@ -218,7 +218,7 @@ void http_main() {
 
   string json_string = "{\"firstName\": \"John\",\"lastName\": \"Smith\",\"age\": 25}";
 
-  // Synchronous request examples
+  // Synchronous request examples  同步请求，可以直接拿response
   try {
     auto r1 = client.request("GET", "/match/123");
     cout << r1->content.rdbuf() << endl; // Alternatively, use the convenience function r1->content.string()
@@ -229,7 +229,7 @@ void http_main() {
   catch(const SimpleWeb::system_error &e) {
     cerr << "Client request error: " << e.what() << endl;
   }
-
+  //异步请求
   // Asynchronous request example
   client.request("POST", "/json", json_string, [](shared_ptr<HttpClient::Response> response, const SimpleWeb::error_code &ec) {
     if(!ec)

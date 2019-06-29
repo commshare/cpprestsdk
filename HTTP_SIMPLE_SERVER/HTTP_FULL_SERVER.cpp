@@ -1,13 +1,12 @@
 
 #include "http_svr.h"
-//https://mariusbancila.ro/blog/2013/08/19/full-fledged-client-server-example-with-cpprest-sdk-110/
+// https://mariusbancila.ro/blog/2013/08/19/full-fledged-client-server-example-with-cpprest-sdk-110/
 //看这个 https://mariusbancila.ro/blog/2017/11/19/revisited-full-fledged-client-server-example-with-c-rest-sdk-2-10/
 namespace full_svr
 
 
 {
-
-    #if 0
+#if 0
 void display_json(json::value const& jvalue, utility::string_t const& prefix)
 {
     std::wcout << prefix << jvalue.serialize() << std::endl;
@@ -179,7 +178,7 @@ int svr_main(int argc, char** argv)
 
     return 0;
 }
-#else  ///https://mariusbancila.ro/blog/2017/11/19/revisited-full-fledged-client-server-example-with-c-rest-sdk-2-10/
+#else /// https://mariusbancila.ro/blog/2017/11/19/revisited-full-fledged-client-server-example-with-c-rest-sdk-2-10/
 
 /*
 I will not reiterate all the details described in the former article. However, in summary, the server maintains a
@@ -188,7 +187,7 @@ dictionary, add new values, update or delete existing ones.
 
 客户端主要是对服务端的dictionary做读取/修改
 */
-    std::map<utility::string_t, utility::string_t> dictionary;
+std::map<utility::string_t, utility::string_t> dictionary;
 
 void display_json(json::value const& jvalue, utility::string_t const& prefix)
 {
@@ -226,6 +225,10 @@ void handle_request(http_request request, std::function<void(web::json::value co
                 if (!jvalue.is_null())
                 {
                     action(jvalue, answer);
+                }
+                else
+                {
+                    std::wcout << "jvalue.is_null() !!!!err!!!!" << std::endl;
                 }
             }
             catch (http_exception const& e)
@@ -379,4 +382,3 @@ int full_svr_main(int argc, char** argv)
 }
 
 #endif
-

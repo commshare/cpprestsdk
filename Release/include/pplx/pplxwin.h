@@ -12,7 +12,7 @@
  ****/
 
 #pragma once
-
+//MS VC++ 12.0 _MSC_VER = 1800 (VisualStudio 2013)
 #if !defined(_WIN32) || _MSC_VER < 1800 || CPPREST_FORCE_PPLX
 
 #include "cpprest/details/cpprest_compat.h"

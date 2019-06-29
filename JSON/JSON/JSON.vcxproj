@@ -91,7 +91,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>E:\edu100dev\100protosdkPC\eduprotosdk\depends\dw3rd\boost2015-1.66.0.140\include;../../</AdditionalIncludeDirectories>
     </ClCompile>
@@ -154,6 +154,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="JSON.cpp" />
+    <ClCompile Include="win_macaddress.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\nlohmann\adl_serializer.hpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="..\..\nlohmann\json_fwd.hpp" />
     <ClInclude Include="File.h" />
     <ClInclude Include="path.h" />
+    <ClInclude Include="show_mac.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -21,6 +21,9 @@
     <ClCompile Include="JSON.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="win_macaddress.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\nlohmann\adl_serializer.hpp">
@@ -37,6 +40,9 @@
     </ClInclude>
     <ClInclude Include="File.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="show_mac.h">
+      <Filter>nlohmann</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

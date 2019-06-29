@@ -173,7 +173,7 @@ namespace SimpleWeb {
         std::lock_guard<std::mutex> lock(concurrent_synchronous_requests_mutex);
         ++concurrent_synchronous_requests;
       }
-      io_service->run();
+      io_service->run();//同步
       {
         std::lock_guard<std::mutex> lock(concurrent_synchronous_requests_mutex);
         --concurrent_synchronous_requests;
@@ -203,7 +203,7 @@ namespace SimpleWeb {
         std::lock_guard<std::mutex> lock(concurrent_synchronous_requests_mutex);
         ++concurrent_synchronous_requests;
       }
-      io_service->run();
+      io_service->run();//同步
       {
         std::lock_guard<std::mutex> lock(concurrent_synchronous_requests_mutex);
         --concurrent_synchronous_requests;
@@ -381,7 +381,7 @@ namespace SimpleWeb {
     std::shared_ptr<Connection> get_connection() noexcept {
       std::shared_ptr<Connection> connection;
       std::lock_guard<std::mutex> lock(connections_mutex);
-
+	  //异步
       if(!io_service) {
         io_service = std::make_shared<asio::io_service>();
         internal_io_service = true;
@@ -648,6 +648,7 @@ namespace SimpleWeb {
     Client(const std::string &server_port_path) noexcept : ClientBase<HTTP>::ClientBase(server_port_path, 80) {}
 
   protected:
+	//创建一路具有超时时间的connection
     std::shared_ptr<Connection> create_connection() noexcept override {
       return std::make_shared<Connection>(handler_runner, config.timeout, *io_service);
     }

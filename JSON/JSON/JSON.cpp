@@ -1,11 +1,10 @@
 ﻿// JSON.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
+#include "File.h"
+#include <filesystem>
 #include <iomanip>
 #include <iostream>
-#include <filesystem>
 #include <nlohmann/json.hpp>
-
-#include "File.h"
 
 // for convenience
 using json = nlohmann::json;
@@ -144,7 +143,18 @@ j5{
     "content":[{
         "key1" :   "%E5%86%85%E5%AE%B91",
       "key2" :   "%E5%86%AE%B91",
-     
+     
+
+
+
+
+
+
+
+
+
+
+
         "key3" : "内容3"
     },{
         "key1" : "内容1",
@@ -309,7 +319,6 @@ public:
     static int id;
 
 private:
-  
     std::string name;
 };
 int Component::id = 0;
@@ -389,22 +398,55 @@ void createVecor(json& d)
     d.push_back(thing);
     d.push_back(thing);
 }
-Path FilePath;
-void save(std::string fileName, json &world)
+void jsonR_parse(std::string json_string)
 {
-  
-    //void Scene::Save(std::string fileName, Transform * root)
+    //    json j_patch = R"([
+    //  { "op": "replace", "path": "/baz", "value": "boo" },
+    //  { "op": "add", "path": "/hello", "value": ["world"] },
+    //  { "op": "remove", "path": "/foo"}
+    //])"_json;
+    auto jj = json::parse(json_string);
+    std::cout << std::setw(4) << jj << std::endl;
+}
+Path FilePath;
+void save(std::string fileName, json& world)
+{
+    // void Scene::Save(std::string fileName, Transform * root)
     {
         FilePath = Path(fileName);
 
         File worldFile(FilePath);
-       
-		
+
 
         worldFile.Write(world.dump(4));
         std::cout << world.dump(4) << std::endl;
     }
 }
+
+
+
+void strdump(std::string str) { std::cout << "#####:" << std::setw(4) << str << std::endl; }
+void push(json& m)
+{
+    json up;
+    up["project"] = "1111";
+    up["region"] = "222222";
+    up["logStore"] = "44444";
+    // TODO IP 地址获取
+    up["source"] = "127.0.0.1";
+    up["encode"] = "3333";
+    up["content"].push_back(m);
+    std::cout << std::setw(4) << up << std::endl;
+    strdump(up.dump());
+}
+void ELK(const std::string& jsonstr)
+{
+    auto j = json::parse(jsonstr);
+    push(j);
+}
+
+
+#include "show_mac.h"
 int main()
 {
     std::cout << "Hello World!\n";
@@ -485,10 +527,19 @@ int main()
 }
     */
     std::cout << std::setw(4) << d << std::endl;
-	//E:\netttttt\http\zhangbincpprestsdk\WIN32\Release下面，跟exe同目录
-    save("ssave.txt",d);
+    // E:\netttttt\http\zhangbincpprestsdk\WIN32\Release下面，跟exe同目录
+    save("ssave.txt", d);
+
+    /////
+    std::cout << "show mac..............." << std::endl;
+    // showmac();
+
+    std::string str = R"({"traceId":"client_test_str", "spanId":"client_test_spanId"})";
+    jsonR_parse(str);
+    json m1 = {{"currency", "USD"}, {"value", 42.99}, {"nihao", "home"}};
+    ELK(m1.dump());
     system("pause");
-    return 0;
+            return 0;
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单

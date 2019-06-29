@@ -4,7 +4,7 @@
  *
  * =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
  *
- * Parallel Patterns Library : cancellation_token
+ * Parallel Patterns Library : cancellation_token 
  *
  * =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
  ****/
@@ -26,7 +26,7 @@
 #include <cstdlib>
 #include <string>
 
-#pragma pack(push, _CRT_PACKING)
+#pragma pack(push, _CRT_PACKING	)
 // All header files are required to be protected from the macro new
 #pragma push_macro("new")
 #undef new
