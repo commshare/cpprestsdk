@@ -24,9 +24,42 @@
     <ClCompile Include="HTTP_FULL_CLIENT.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="simple_https_client.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="def.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="client_https.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\simple_web\client_http.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\simple_web\client_https.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\simple_web\status_code.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\simple_web\utility.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\simple_web\asio_compatibility.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\simple_web\crypto.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\simple_web\mutex.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\simple_web\server_http.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\simple_web\server_https.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

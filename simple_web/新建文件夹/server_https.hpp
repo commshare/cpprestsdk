@@ -1,5 +1,5 @@
-#ifndef SIMPLE_WEB_SERVER_HTTPS_HPP
-#define SIMPLE_WEB_SERVER_HTTPS_HPP
+#ifndef SERVER_HTTPS_HPP
+#define SERVER_HTTPS_HPP
 
 #include "server_http.hpp"
 
@@ -53,7 +53,7 @@ namespace SimpleWeb {
         if(!lock)
           return;
 
-        if(ec != error::operation_aborted)
+        if(ec != asio::error::operation_aborted)
           this->accept();
 
         auto session = std::make_shared<Session>(config.max_request_streambuf_size, connection);
@@ -82,4 +82,4 @@ namespace SimpleWeb {
   };
 } // namespace SimpleWeb
 
-#endif /* SIMPLE_WEB_SERVER_HTTPS_HPP */
+#endif /* SERVER_HTTPS_HPP */

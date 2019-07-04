@@ -1,19 +1,6 @@
 #ifndef SIMPLE_WEB_CLIENT_HTTP_HPP
 #define SIMPLE_WEB_CLIENT_HTTP_HPP
 
-#if defined(_MSC_VER)
-#include <BaseTsd.h>
-typedef SSIZE_T ssize_t;
-#endif
-#ifndef _WIN32_WINNT        // 允许使用 Windows NT 4 或更高版本的特定功能。
-#define _WIN32_WINNT 0x0600 //为 Windows98 和 Windows 2000 及更新版本改变为适当的值。
-#endif
-
-#ifndef _WIN32_WINDOWS        // 允许使用 Windows 98 或更高版本的特定功能。
-#define _WIN32_WINDOWS 0x0600 //为 Windows Me 及更新版本改变为适当的值。
-#endif
-
-
 #include "asio_compatibility.hpp"
 #include "mutex.hpp"
 #include "utility.hpp"

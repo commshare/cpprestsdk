@@ -1,5 +1,5 @@
-#include "client_https.hpp"
-#include "server_https.hpp"
+#include "client_http.hpp"
+#include "server_http.hpp"
 
 // Added for the json-example
 #define BOOST_SPIRIT_THREADSAFE
@@ -7,29 +7,31 @@
 #include <boost/property_tree/ptree.hpp>
 
 // Added for the default_resource example
-#include "crypto.hpp"
 #include <algorithm>
 #include <boost/filesystem.hpp>
 #include <fstream>
 #include <vector>
+#ifdef HAVE_OPENSSL
+#include "crypto.hpp"
+#endif
 
 using namespace std;
 // Added for the json-example:
 using namespace boost::property_tree;
 
-using HttpsServer = SimpleWeb::Server<SimpleWeb::HTTPS>;
-using HttpsClient = SimpleWeb::Client<SimpleWeb::HTTPS>;
+using HttpServer = SimpleWeb::Server<SimpleWeb::HTTP>;
+using HttpClient = SimpleWeb::Client<SimpleWeb::HTTP>;
 
-int main() {
-  // HTTPS-server at port 8080 using 1 thread
+void http_main() {
+  // HTTP-server at port 8080 using 1 thread
   // Unless you do more heavy non-threaded processing in the resources,
   // 1 thread is usually faster than several threads
-  HttpsServer server("server.crt", "server.key");
+  HttpServer server;
   server.config.port = 8080;
 
   // Add resources using path-regex and method-string, and an anonymous function
   // POST-example for the path /string, responds the posted string
-  server.resource["^/string$"]["POST"] = [](shared_ptr<HttpsServer::Response> response, shared_ptr<HttpsServer::Request> request) {
+  server.resource["^/string$"]["POST"] = [](shared_ptr<HttpServer::Response> response, shared_ptr<HttpServer::Request> request) {
     // Retrieve string:
     auto content = request->content.string();
     // request->content.string() is a convenience function for:
@@ -53,7 +55,7 @@ int main() {
   //   "lastName": "Smith",
   //   "age": 25
   // }
-  server.resource["^/json$"]["POST"] = [](shared_ptr<HttpsServer::Response> response, shared_ptr<HttpsServer::Request> request) {
+  server.resource["^/json$"]["POST"] = [](shared_ptr<HttpServer::Response> response, shared_ptr<HttpServer::Request> request) {
     try {
       ptree pt;
       read_json(request->content, pt);
@@ -85,7 +87,7 @@ int main() {
 
   // GET-example for the path /info
   // Responds with request-information
-  server.resource["^/info$"]["GET"] = [](shared_ptr<HttpsServer::Response> response, shared_ptr<HttpsServer::Request> request) {
+  server.resource["^/info$"]["GET"] = [](shared_ptr<HttpServer::Response> response, shared_ptr<HttpServer::Request> request) {
     stringstream stream;
     stream << "<h1>Request from " << request->remote_endpoint_address() << ":" << request->remote_endpoint_port() << "</h1>";
 
@@ -105,12 +107,12 @@ int main() {
 
   // GET-example for the path /match/[number], responds with the matched string in path (number)
   // For instance a request GET /match/123 will receive: 123
-  server.resource["^/match/([0-9]+)$"]["GET"] = [](shared_ptr<HttpsServer::Response> response, shared_ptr<HttpsServer::Request> request) {
+  server.resource["^/match/([0-9]+)$"]["GET"] = [](shared_ptr<HttpServer::Response> response, shared_ptr<HttpServer::Request> request) {
     response->write(request->path_match[1].str());
   };
 
   // GET-example simulating heavy work in a separate thread
-  server.resource["^/work$"]["GET"] = [](shared_ptr<HttpsServer::Response> response, shared_ptr<HttpsServer::Request> /*request*/) {
+  server.resource["^/work$"]["GET"] = [](shared_ptr<HttpServer::Response> response, shared_ptr<HttpServer::Request> /*request*/) {
     thread work_thread([response] {
       this_thread::sleep_for(chrono::seconds(5));
       response->write("Work done");
@@ -122,7 +124,7 @@ int main() {
   // Will respond with content in the web/-directory, and its subdirectories.
   // Default file: index.html
   // Can for instance be used to retrieve an HTML 5 client that uses REST-resources on this server
-  server.default_resource["GET"] = [](shared_ptr<HttpsServer::Response> response, shared_ptr<HttpsServer::Request> request) {
+  server.default_resource["GET"] = [](shared_ptr<HttpServer::Response> response, shared_ptr<HttpServer::Request> request) {
     try {
       auto web_root_path = boost::filesystem::canonical("web");
       auto path = boost::filesystem::canonical(web_root_path / request->path);
@@ -171,7 +173,7 @@ int main() {
         // Trick to define a recursive function within this scope (for example purposes)
         class FileServer {
         public:
-          static void read_and_send(const shared_ptr<HttpsServer::Response> &response, const shared_ptr<ifstream> &ifs) {
+          static void read_and_send(const shared_ptr<HttpServer::Response> &response, const shared_ptr<ifstream> &ifs) {
             // Read and send 128 KB at a time
             static vector<char> buffer(131072); // Safe when server is running on one thread
             streamsize read_length;
@@ -198,7 +200,7 @@ int main() {
     }
   };
 
-  server.on_error = [](shared_ptr<HttpsServer::Request> /*request*/, const SimpleWeb::error_code & /*ec*/) {
+  server.on_error = [](shared_ptr<HttpServer::Request> /*request*/, const SimpleWeb::error_code & /*ec*/) {
     // Handle errors here
     // Note that connection timeouts will also call this handle with ec set to SimpleWeb::errc::operation_canceled
   };
@@ -212,12 +214,11 @@ int main() {
   this_thread::sleep_for(chrono::seconds(1));
 
   // Client examples
-  // Second create() parameter set to false: no certificate verification
-  HttpsClient client("localhost:8080", false);
+  HttpClient client("localhost:8080");
 
   string json_string = "{\"firstName\": \"John\",\"lastName\": \"Smith\",\"age\": 25}";
 
-  // Synchronous request examples
+  // Synchronous request examples  同步请求，可以直接拿response
   try {
     auto r1 = client.request("GET", "/match/123");
     cout << r1->content.rdbuf() << endl; // Alternatively, use the convenience function r1->content.string()
@@ -228,9 +229,9 @@ int main() {
   catch(const SimpleWeb::system_error &e) {
     cerr << "Client request error: " << e.what() << endl;
   }
-
+  //异步请求
   // Asynchronous request example
-  client.request("POST", "/json", json_string, [](shared_ptr<HttpsClient::Response> response, const SimpleWeb::error_code &ec) {
+  client.request("POST", "/json", json_string, [](shared_ptr<HttpClient::Response> response, const SimpleWeb::error_code &ec) {
     if(!ec)
       cout << response->content.rdbuf() << endl;
   });

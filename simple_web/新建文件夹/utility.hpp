@@ -1,7 +1,4 @@
-#ifndef SIMPLE_WEB_UTILITY_HPP
-#define SIMPLE_WEB_UTILITY_HPP
-
-#include "status_code.hpp"
+#pragma once
 #include <atomic>
 #include <cstdlib>
 #include <iostream>
@@ -9,23 +6,19 @@
 #include <string>
 #include <unordered_map>
 
-#if __cplusplus > 201402L || _MSVC_LANG > 201402L
-#include <string_view>
-namespace SimpleWeb {
-  using string_view = std::string_view;
-}
-#elif !defined(USE_STANDALONE_ASIO)
-#include <boost/utility/string_ref.hpp>
-namespace SimpleWeb {
-  using string_view = boost::string_ref;
-}
-#else
-namespace SimpleWeb {
-  using string_view = const std::string &;
-}
-#endif
+#include "status_code.hpp"
 
-namespace SimpleWeb {
+
+
+#include <boost/utility/string_ref.hpp>
+namespace SimpleWeb
+{
+using string_view = boost::string_ref;
+}
+
+
+namespace SimpleWeb
+{
   inline bool case_insensitive_equal(const std::string &str1, const std::string &str2) noexcept {
     return str1.size() == str2.size() &&
            std::equal(str1.begin(), str1.end(), str2.begin(), [](char a, char b) {
@@ -222,7 +215,7 @@ namespace SimpleWeb {
         }
       };
     };
-  }; // namespace SimpleWeb
+  }; // namespace EduWeb
 
   class RequestMessage {
   public:
@@ -283,7 +276,7 @@ namespace SimpleWeb {
         else
           return false;
         if((version_end + 1) < line.size())
-          status_code = line.substr(version_end + 1, line.size() - (version_end + 1) - (line.back() == '\r' ? 1 : 0));
+          status_code = line.substr(version_end + 1, line.size() - (version_end + 1) - 1);
         else
           return false;
 
@@ -294,26 +287,28 @@ namespace SimpleWeb {
       return true;
     }
   };
-} // namespace SimpleWeb
+} // namespace EduWeb
 
 #ifdef __SSE2__
 #include <emmintrin.h>
-namespace SimpleWeb {
+namespace EduWeb {
   inline void spin_loop_pause() noexcept { _mm_pause(); }
-} // namespace SimpleWeb
+} // namespace EduWeb
 // TODO: need verification that the following checks are correct:
 #elif defined(_MSC_VER) && _MSC_VER >= 1800 && (defined(_M_X64) || defined(_M_IX86))
 #include <intrin.h>
-namespace SimpleWeb {
+namespace SimpleWeb
+{
   inline void spin_loop_pause() noexcept { _mm_pause(); }
-} // namespace SimpleWeb
+} // namespace EduWeb
 #else
-namespace SimpleWeb {
+namespace EduWeb {
   inline void spin_loop_pause() noexcept {}
-} // namespace SimpleWeb
+} // namespace EduWeb
 #endif
 
-namespace SimpleWeb {
+namespace SimpleWeb
+{
   /// Makes it possible to for instance cancel Asio handlers without stopping asio::io_service
   class ScopeRunner {
     /// Scope count that is set to -1 if scopes are to be canceled
@@ -360,4 +355,4 @@ namespace SimpleWeb {
   };
 } // namespace SimpleWeb
 
-#endif // SIMPLE_WEB_UTILITY_HPP
+

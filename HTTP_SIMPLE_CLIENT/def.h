@@ -25,3 +25,4 @@ using namespace concurrency::streams; // Asynchronous streams
 
 int main_simple(int argc, char* argv[]);
 int full_client_main();
+int simple_https_client();
